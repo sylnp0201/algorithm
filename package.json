@@ -1,0 +1,20 @@
+{
+  "name": "algorithm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sort": "NODE_PATH=./src node ./test/sort.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sylnp0201/algorithm.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sylnp0201/algorithm/issues"
+  },
+  "homepage": "https://github.com/sylnp0201/algorithm#readme"
+}

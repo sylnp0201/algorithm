@@ -14,7 +14,7 @@ const insertSortSubArray = (array, lo, hi) => {
 const sort = (array, lo, hi) => {
   if (lo >= hi) return;
 
-  if ((hi - lo) < 10) {
+  if ((hi - lo) < 7) {
     insertSortSubArray(array, lo, hi);
     return;
   }
@@ -38,9 +38,7 @@ const sort = (array, lo, hi) => {
   sort(array, gt + 1, hi);
 };
 
-module.exports = (inputArray) => {
-  const array = inputArray.slice(0);
-
+module.exports = (array) => {
   sort(array, 0, array.length - 1);
 
   return array;

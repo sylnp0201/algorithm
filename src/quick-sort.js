@@ -24,9 +24,7 @@ const sort = (array, lo, hi) => {
   sort(array, gt + 1, hi);
 };
 
-module.exports = (inputArray) => {
-  const array = inputArray.slice(0);
-
+module.exports = (array) => {
   sort(array, 0, array.length - 1);
 
   return array;

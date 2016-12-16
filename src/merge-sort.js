@@ -28,9 +28,8 @@ const sort = (array, aux, lo, hi) => {
   merge(array, aux, lo, mid, hi);
 }
 
-module.exports = (inputArray) => {
-  const array = inputArray.slice(0);
-  const aux = inputArray.slice(0);
+module.exports = (array) => {
+  const aux = array.slice(0);
 
   sort(array, aux, 0, array.length - 1);
 

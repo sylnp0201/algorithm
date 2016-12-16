@@ -1,6 +1,6 @@
-// 'use strict';
-//
-const Benchmark = require('benchmark');
+'use strict';
+
+const benchmark = require('./benchmark');
 const isSorted = require('utils/is-sorted');
 const randomArray = require('utils/random-array');
 
@@ -9,9 +9,9 @@ const hqsort = require('hybrid-quick-sort');
 const msort = require('merge-sort');
 const isort = require('insertion-sort');
 
-const array = randomArray(1e4);
+const N = 1e6;
 
-const suite = new Benchmark.Suite;
+let array = randomArray(N);
 
 if (!isSorted(qsort(array))) {
   throw new Error('qsort shits her self');
@@ -29,23 +29,13 @@ if (!isSorted(isort(array))) {
   throw new Error('isort shits her self');
 }
 
-suite
-  .add('qsort', () => {
-    qsort(array);
-  })
-  .add('hqsort', () => {
-    hqsort(array);
-  })
-  .add('msort', () => {
-    msort(array);
-  })
-  .add('isort', () => {
-    isort(array);
-  })
-  .on('cycle', function(event) {
-    console.log(String(event.target));
-  })
-  .on('complete', function() {
-    console.log('Fastest is ' + this.filter('fastest').map('name'));
-  })
-  .run({ 'async': true });
+const setup = () => array = randomArray(N);
+
+benchmark('Array.sort', () => { array.sort(); }, setup);
+benchmark('qsort', () => { qsort(array); }, setup);
+benchmark('hqsort', () => { hqsort(array); }, setup);
+benchmark('msort', () => { msort(array); }, setup);
+
+if (N <= 1e5) {
+  benchmark('isort', () => { isort(array); }, setup);
+}

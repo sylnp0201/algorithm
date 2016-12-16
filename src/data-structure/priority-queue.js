@@ -2,16 +2,27 @@
 
 const exch = require('utils/exch');
 
+function Node(key, value) {
+  this.key = key;
+  this.value = value;
+}
+
 // MinPQ
 function PQ() {
   this.s = [null];
   this.n = 0; // the length of the queue
+  this.keys = {};
 }
 
-PQ.prototype.add = function(key) {
+PQ.prototype.isEmpty = function() {
+  return this.n === 0;
+}
+
+PQ.prototype.add = function(key, value) {
   let n = this.n;
 
-  this.s[++n] = key;
+  this.s[++n] = new Node(key, value);
+  this.keys[key] = true;
   this.swim(this.n);
 
   this.n = n;
@@ -33,6 +44,8 @@ PQ.prototype.delMin = function() {
   this.sink(1);
   s.length = n + 1;
 
+  delete this.keys[min.key];
+
   return min;
 };
 
@@ -42,7 +55,7 @@ PQ.prototype.swim = function(k) {
   const p = Math.floor(k / 2);
   const s = this.s;
 
-  if (s[k] < s[p]) {
+  if (s[k].key < s[p].key) {
     exch(s, k, p);
     this.swim(p);
   }
@@ -53,23 +66,29 @@ PQ.prototype.sink = function(k) {
 
   while(2 * k <= this.n) {
     let j = 2 * k;
-    if (j < this.n && s[j] > s[j+1]) {
+    if (j < this.n && s[j].key > s[j+1].key) {
       j++;
     }
-    if (s[k] <= s[j]) break;
+    if (s[k].key <= s[j].key) break;
     exch(s, k, j);
     k = j;
   }
 }
 
+PQ.prototype.contains = function(key) {
+  return !!this.keys[key];
+}
+
+module.exports = PQ;
+
 // const pq = new PQ();
 //
-// pq.add(3);
-// pq.add(1);
-// pq.add(4);
-// pq.add(2);
-// pq.add(5);
-// pq.add(6);
+// pq.add(3, 'three');
+// pq.add(1, 'one');
+// pq.add(4, 'four');
+// pq.add(2, 'two');
+// pq.add(5, 'five');
+// pq.add(6, 'six');
 //
 // console.log(pq);
 //

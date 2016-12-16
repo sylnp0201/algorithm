@@ -14,19 +14,15 @@ const N = 1e6;
 let array = randomArray(N);
 
 if (!isSorted(qsort(array))) {
-  throw new Error('qsort shits her self');
+  throw new Error('qsort shits herself');
 }
 
 if (!isSorted(hqsort(array))) {
-  throw new Error('hqsort shits her self');
+  throw new Error('hqsort shits herself');
 }
 
 if (!isSorted(msort(array))) {
-  throw new Error('msort shits her self');
-}
-
-if (!isSorted(isort(array))) {
-  throw new Error('isort shits her self');
+  throw new Error('msort shits herself');
 }
 
 const setup = () => array = randomArray(N);
@@ -37,5 +33,8 @@ benchmark('hqsort', () => { hqsort(array); }, setup);
 benchmark('msort', () => { msort(array); }, setup);
 
 if (N <= 1e5) {
+  if (!isSorted(isort(array))) {
+    throw new Error('isort shits herself');
+  }
   benchmark('isort', () => { isort(array); }, setup);
 }

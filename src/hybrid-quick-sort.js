@@ -3,19 +3,11 @@
 const exch = require('utils/exch');
 const isort = require('insertion-sort');
 
-const insertSortSubArray = (array, lo, hi) => {
-  const subarray = array.slice(lo, hi + 1);
-  const sorted = isort(subarray);
-  for (let i = lo; i <= hi; i++) {
-    array[i] = sorted[i - lo];
-  }
-}
-
 const sort = (array, lo, hi) => {
   if (lo >= hi) return;
 
   if ((hi - lo) < 7) {
-    insertSortSubArray(array, lo, hi);
+    isort(array, lo, hi);
     return;
   }
 

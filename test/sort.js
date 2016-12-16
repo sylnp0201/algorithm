@@ -9,7 +9,7 @@ const hqsort = require('hybrid-quick-sort');
 const msort = require('merge-sort');
 const isort = require('insertion-sort');
 
-const N = 1e6;
+const N = parseInt(process.env.SIZE, 10) || 1e5;
 
 let array = randomArray(N);
 

@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sort": "NODE_PATH=./src node ./test/sort.js"
+    "sort": "NODE_PATH=./src node ./test/sort.js",
+    "dictionary": "NODE_PATH=./src node ./test/dictionary.js"
   },
   "repository": {
     "type": "git",

@@ -13,6 +13,20 @@ class Queue {
     this.last = null;
   }
 
+  [Symbol.iterator]() {
+    return {
+      next: () => {
+        const done = this.isEmpty();
+        const value = this.pop();
+
+        return {
+          value,
+          done
+        };
+      }
+    }
+  }
+
   isEmpty() {
     return !this.first;
   }
@@ -45,3 +59,13 @@ class Queue {
 }
 
 module.exports = Queue;
+
+// TEST CODE
+// const q = new Queue();
+// q.push(1);
+// q.push(2);
+// q.push(3);
+//
+// for (let i of q) {
+//   console.log(i);
+// }

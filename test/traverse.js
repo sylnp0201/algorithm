@@ -1,7 +1,7 @@
 'use strict';
 
 const BST = require('data-structure/binary-search-tree');
-const randomArry = require('utils/random-array');
+const randomArry = require('utils/random-array').number;
 
 const bst = new BST();
 

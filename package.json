@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "sort": "NODE_PATH=./src node ./test/sort.js",
+    "string-sort": "NODE_PATH=./src node ./test/string-sort.js",
     "dictionary": "NODE_PATH=./src node ./test/dictionary.js"
   },
   "repository": {

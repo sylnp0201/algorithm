@@ -43,8 +43,11 @@ if (N <= 1e4) {
 
 if (TYPE === 'string') {
   const lsdsort = require('lsd-sort');
+  const radixquicksort = require('string-quick');
 
   assertSorted(lsdsort);
+  assertSorted(radixquicksort);
 
   benchmark('lsdsort', () => { lsdsort(array); }, setup);
+  benchmark('radixquicksort', () => { radixquicksort(array); }, setup);
 }

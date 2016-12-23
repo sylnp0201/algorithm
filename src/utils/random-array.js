@@ -11,7 +11,7 @@ const number = (n) => {
 }
 
 const string = (n) => {
-  const WIDTH = 8;
+  const WIDTH = 10;
   const array = new Array(n);
 
   // 97 - 122

@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "sort": "NODE_PATH=./src node ./test/sort.js",
     "string-sort": "NODE_PATH=./src node ./test/string-sort.js",
-    "dictionary": "NODE_PATH=./src node ./test/dictionary.js"
+    "dict-tries": "NODE_PATH=./src node ./test/dict-tries.js",
+    "dict-hash": "NODE_PATH=./src node ./test/dict-hash.js",
+    "dict": "NODE_PATH=./src node ./test/dict-compare.js"
   },
   "repository": {
     "type": "git",

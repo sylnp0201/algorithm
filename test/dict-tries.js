@@ -49,30 +49,32 @@ Dictionary.prototype.withPrefix = function(prefix) {
   return this.tries.prefix(key).map(key => toString(key));
 };
 
-const dict = new Dictionary(data);
+module.exports = Dictionary;
 
-var rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-  terminal: false
-});
+// const dict = new Dictionary(data);
 
-process.stdout.write(`Enter words, I\'ll help you find it.\n>`);
-
-rl.on('line', function(word) {
-  const meaning = dict.get(word);
-
-  if (!meaning) {
-    process.stdout.write(`Could not find ${word}\n>`);
-
-    const suggestion = dict.withPrefix(word);
-
-    if (suggestion && suggestion.length > 0) {
-      process.stdout.write(`Did you mean ${suggestion.join(', ')}\n>`);
-    }
-
-    return;
-  }
-
-  process.stdout.write(`It means: ${meaning}\n>`)
-});
+// var rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout,
+//   terminal: false
+// });
+//
+// process.stdout.write(`Enter words, I\'ll help you find it.\n>`);
+//
+// rl.on('line', function(word) {
+//   const meaning = dict.get(word);
+//
+//   if (!meaning) {
+//     process.stdout.write(`Could not find ${word}\n>`);
+//
+//     const suggestion = dict.withPrefix(word);
+//
+//     if (suggestion && suggestion.length > 0) {
+//       process.stdout.write(`Did you mean ${suggestion.join(', ')}\n>`);
+//     }
+//
+//     return;
+//   }
+//
+//   process.stdout.write(`It means: ${meaning}\n>`)
+// });

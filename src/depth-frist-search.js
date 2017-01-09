@@ -16,6 +16,7 @@ DFS.prototype.search = function(s) {
   const G = this.G;
   this.marked[s] = true;
 
+
   for (const p of G.adj(s)) {
     if (!this.marked[p]) {
       this.search(p);

@@ -16,6 +16,7 @@ class BFS {
     this.marked = new Array(v);
     this.pathFrom = new Array(v);
 
+
     this.search(s);
   }
 

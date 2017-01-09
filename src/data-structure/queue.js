@@ -15,16 +15,11 @@ class Queue {
 
   [Symbol.iterator]() {
     return {
-      next: () => {
-        const done = this.isEmpty();
-        const value = this.pop();
-
-        return {
-          value,
-          done
-        };
-      }
-    }
+      next: () => ({
+        done: this.isEmpty(),
+        value: this.pop()
+      })
+    };
   }
 
   isEmpty() {
@@ -32,40 +27,43 @@ class Queue {
   }
 
   push(value) {
-    const node = new Node(value);
+    const newnode = new Node(value, null);
 
     if (this.isEmpty()) {
-      this.first = node;
-      this.last = node;
-    } else {
-      const lastNode = this.last;
-      this.last = node;
-      lastNode.next = node;
+      this.first = newnode;
+      this.last = this.first;
     }
+
+    const oldlast = this.last;
+    oldlast.next = newnode;
+    this.last = newnode;
   }
 
   pop() {
-    if (this.isEmpty()) return null;
+    if (this.isEmpty()) {
+      return null;
+    }
 
-    const node = this.first;
-    this.first = node.next;
+    const result = this.first.value;
+
+    this.first = this.first.next;
 
     if (this.isEmpty()) {
       this.last = null;
     }
 
-    return node.value;
+    return result;
   }
 }
 
 module.exports = Queue;
 
 // TEST CODE
-// const q = new Queue();
-// q.push(1);
-// q.push(2);
-// q.push(3);
-//
-// for (let i of q) {
-//   console.log(i);
-// }
+const q = new Queue();
+q.push(1);
+q.push(2);
+q.push(3);
+
+for (let i of q) {
+  console.log(i);
+}

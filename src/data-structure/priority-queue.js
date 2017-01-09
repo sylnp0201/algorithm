@@ -18,6 +18,7 @@ PQ.prototype.isEmpty = function() {
   return this.n === 0;
 }
 
+
 PQ.prototype.add = function(key, value) {
   let n = this.n;
 

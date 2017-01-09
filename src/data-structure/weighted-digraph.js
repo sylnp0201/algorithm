@@ -22,6 +22,7 @@ Graph.prototype.addEdge = function(from, to, weight) {
   this.vertices[from].push(edge);
 }
 
+
 Graph.prototype.adj = function(v) {
   return this.vertices[v];
 }

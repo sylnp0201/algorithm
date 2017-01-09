@@ -15,3 +15,22 @@ module.exports = (a, lo, hi) => {
 
   return a;
 };
+
+// const sort = (a) => {
+//   const length = a.length;
+//
+//   for (let i = 0; i < length; i++) {
+//     for (let j = i; j > 0; j--) {
+//       if (a[j] < a[j - 1]) {
+//         exch(a, j, j - 1);
+//       } else {
+//         break;
+//       }
+//     }
+//   }
+//
+//   return a;
+// };
+
+// const array = ['c', 'b', 'a', 'c', 'e', 'a', 'd', 'g', 'f', 'f', 'c', 'c', 'a'];
+// console.log(sort(array));

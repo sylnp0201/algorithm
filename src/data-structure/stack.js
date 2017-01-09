@@ -12,6 +12,7 @@ class Stack {
     this.top = null;
   }
 
+  // wrong way of using iterator
   [Symbol.iterator]() {
     return {
       next: () => {
@@ -31,29 +32,45 @@ class Stack {
   }
 
   push(value) {
-    const node = new Node(value, this.top);
-    this.top = node;
+    const newnode = new Node(value, null);
+
+    if (this.isEmpty()) {
+      this.top = newnode;
+      return;
+    }
+
+    newnode.next = this.top;
+    this.top = newnode;
   }
 
   pop() {
-    if (this.isEmpty()) return null;
+    if (this.isEmpty()) {
+      return null;
+    }
 
-    const value = this.top.value;
-
+    const result = this.top.value;
     this.top = this.top.next;
 
-    return value;
+    return result;
   }
 }
 
 module.exports = Stack;
 
 // TEST CODE
-// const stack = new Stack();
-// stack.push(1);
-// stack.push(2);
-// stack.push(3);
-//
-// for (let i of stack) {
-//   console.log(i);
-// }
+const stack = new Stack();
+stack.push(1);
+stack.push(2);
+stack.push(3);
+
+for (let i of [0,1,2]) {
+  console.log(stack.pop());
+}
+
+stack.push(4);
+stack.push(5);
+stack.push(6);
+
+for (let i of stack) {
+  console.log(i);
+}

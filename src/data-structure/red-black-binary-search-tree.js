@@ -20,6 +20,7 @@ function isRed(node) {
   return !!node && node.color === RED;
 }
 
+
 function _rotateLeft(node) {
   // console.log('_rotateLeft');
   if (!node.right || !isRed(node.right)) {

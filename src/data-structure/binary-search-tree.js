@@ -20,6 +20,7 @@ function _add(node, key, value) {
     node.right = _add(node.right, key, value);
   }
 
+
   return node;
 }
 

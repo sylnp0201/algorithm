@@ -12,6 +12,7 @@ function indexCountingSort(array) {
     count[charToCode(c) + 1]++;
   });
 
+
   for (let i = 1; i < count.length; i++) {
     count[i] = count[i] + count[i - 1];
   }

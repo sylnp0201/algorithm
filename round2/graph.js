@@ -20,5 +20,20 @@ Graph.prototype.adj = function(v) {
   return this.vertices[v];
 }
 
+function graphBuilder() {
+  const graph = new Graph(10);
 
-module.exports = Graph;
+  graph.addEdge(0, 1);
+  graph.addEdge(0, 2);
+  graph.addEdge(1, 5);
+  graph.addEdge(2, 4);
+  graph.addEdge(5, 3);
+  graph.addEdge(3, 4);
+  graph.addEdge(4, 9);
+  graph.addEdge(6, 7);
+  graph.addEdge(7, 8);
+
+  return graph;
+}
+
+module.exports = graphBuilder;

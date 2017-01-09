@@ -51,3 +51,21 @@ if (TYPE === 'string') {
   benchmark('lsdsort', () => { lsdsort(array); }, setup);
   benchmark('radixquicksort', () => { radixquicksort(array); }, setup);
 }
+
+/* Type: Number
+  Array.sort | 23ms
+  qsort | 3ms
+  hqsort | 4ms
+  msort | 63ms
+  bstsort | 31ms
+*/
+
+/* Type: String
+  Array.sort | 85ms
+  qsort | 59ms
+  hqsort | 61ms
+  msort | 105ms
+  bstsort | 119ms
+  lsdsort | 408ms
+  radixquicksort | 40ms
+*/

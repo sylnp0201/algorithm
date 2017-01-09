@@ -3,7 +3,7 @@
 const R = 256; // all ascii chars
 const charToCode = (c) => c.charCodeAt(0);
 
-function leastSignificantDigitSFirstSort(array) {
+function leastSignificantDigitsFirstSort(array) {
   const radix = array[0].length;
 
   for (let d = radix - 1; d >= 0; d--) {
@@ -28,7 +28,7 @@ function leastSignificantDigitSFirstSort(array) {
   return array;
 };
 
-module.exports = leastSignificantDigitSFirstSort;
+module.exports = leastSignificantDigitsFirstSort;
 
 // const array = [
 //   'abc',

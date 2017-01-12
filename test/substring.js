@@ -8,7 +8,8 @@ const CONTEXT_RANGE = 40;
 fs.readFile('src/data/mobydick.txt', 'utf8', function(err, data) {
   if (err) throw err;
 
-  const idx = kmp(data, 'Voyages');
+  const idx = kmp(data, 'the');
+  console.log(idx);
 
   if (idx === NOT_FOUND) {
     console.log('Not Found');
